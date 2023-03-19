@@ -151,7 +151,7 @@ function Feed() {
             const { data, error } = await supabase
             .from("Posts")
             .insert({
-                posted_by: user.user_metadata.provider_id,
+                posted_by: user.user_metadata.name,
                 song_name: info.tracks.items[0].name,
                 description: description,
                 song_artist: info.tracks.items[0].artists[0].name,
