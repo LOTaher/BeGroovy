@@ -106,15 +106,15 @@ function Feed() {
                 
                 <SearchForm user={user} name={name} artist={artist} setName={setName} setArtist={setArtist} setDescription={setDescription} accessToken={accessToken} info={info} setInfo={setInfo} description={description}/>
 
-                <hr></hr>
-                <h3>Feed</h3>
-                <Row className="g-4" lg={1} xs={1}>
-                    {posts.map((post) => (
-                        <Col>
-                            <Post post={post} /> 
-                        </Col>
-                    ))}
-                </Row>
+                    <hr></hr>
+                    <h3>Feed</h3>
+                    <Row className="g-4" lg={1} xs={1}>
+                        {posts.map((post) => (
+                            <Col style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <Post post={post} /> 
+                            </Col>
+                        ))}
+                    </Row>
                 </>
             :
                 <> 
