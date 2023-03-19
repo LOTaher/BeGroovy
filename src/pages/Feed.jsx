@@ -205,7 +205,7 @@ function Feed() {
                     <h3>Feed</h3>
                     <Row className="g-4" lg={1} xs={1}>
                         {posts.map((post) => (
-                            <Col>
+                            <Col style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <Post post={post} /> 
                             </Col>
                         ))}
