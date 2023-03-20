@@ -1,7 +1,7 @@
 import React from 'react'
 import { createClient } from "@supabase/supabase-js"
 import { useEffect, useState } from 'react'
-import { Container, Nav, Navbar, Form, Button, Row, Col} from "react-bootstrap"
+import { Container, Nav, Navbar, Form, Button, Row, Col, Modal} from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const supabase = createClient('https://uktonbtcsnwrpwwsrikr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVrdG9uYnRjc253cnB3d3NyaWtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxNjU5ODIsImV4cCI6MTk5Mjc0MTk4Mn0.3o3Xz3XlW_4Kq-375e8DZUALcosQ4Bb874gib7GfAJE')
@@ -18,6 +18,9 @@ const SearchForm = (props) => {
     const accessToken = props.accessToken;
     const info = props.info;
     const setInfo = props.setInfo;
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     async function search() {
 
@@ -65,20 +68,30 @@ const SearchForm = (props) => {
     return (
         <div>
             <Container>
-                    <h3>Post Your Song</h3>
-                    <Form.Group>
-                        <Form.Label>Song Name</Form.Label>
-                        <Form.Control type="text" id="song_name" onChange={(e) => setName(e.target.value)}/>
-                        <Form.Label>Artist</Form.Label>
-                        <Form.Control type="text" id="artist" onChange={(e) => setArtist(e.target.value)}/>
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" id="song_description" onChange={(e) => setDescription(e.target.value)}/>
-                    </Form.Group>
-                    <br></br>
-                    <Button onClick={() => search()}>Confirm</Button> 
-                    <br></br>
-                    <Button variant="success" onClick={() => createPost()}>Post</Button>
-                </Container>
+                <Button variant="primary" onClick={handleShow}>Add Post</Button>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Enter Song Details:</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form.Group>
+                            <Form.Label>Song Name</Form.Label>
+                            <Form.Control type="text" id="song_name" onChange={(e) => setName(e.target.value)}/>
+                            <Form.Label>Artist</Form.Label>
+                            <Form.Control type="text" id="artist" onChange={(e) => setArtist(e.target.value)}/>
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control type="text" id="song_description" onChange={(e) => setDescription(e.target.value)}/>
+                        </Form.Group>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        {/* <Button variant="primary" onClick={() => { search(); createPost(); handleClose }}>Post</Button> */}
+                        <Button variant="primary" onClick={() => search()}>Confirm</Button>
+                        <Button variant="success" onClick={() => { createPost(); handleClose }}>Post</Button>
+                        <Button variant="secondary" onClick={ handleClose }>Cancel</Button>
+                        {/* <Button onClick={() => search()}>Confirm</Button>  */}
+                    </Modal.Footer>
+                </Modal>
+            </Container>
         </div>
     )
 }
