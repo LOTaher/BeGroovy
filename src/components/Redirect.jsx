@@ -6,7 +6,7 @@ const Redirect = () => {
   return (
     <>
     <h3>Sneaking around? It looks like you're not logged in!</h3>
-    <button onClick={() => navigate("/login")}>Log in here</button>
+    <button onClick={() => navigate("/")}>Log in here</button>
     </>
   )
 }
