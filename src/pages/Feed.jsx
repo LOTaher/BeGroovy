@@ -50,7 +50,6 @@ function Feed() {
                 const { data, error } = await supabase
                 .from("Posts")
                 .select()
-                .limit(15)
                 if (error) throw error
                 if (data != null) {
                     setPosts(data)

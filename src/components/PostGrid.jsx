@@ -12,7 +12,12 @@ function RenderPost(post) {
 
 function PostGrid(props) {
     const posts = props.posts;
-    posts.sort((a, b) => a.created_at - b.created_at);
+    const NUM_DISPLAYED = 15;
+
+    posts.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+    posts.length = NUM_DISPLAYED;
+
+    
     return (
         <Row className="g-4" lg={1} xs={1}>
             {posts.map((post) => (RenderPost(post)))}

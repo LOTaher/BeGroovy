@@ -6,16 +6,20 @@ const supabase = createClient('https://uktonbtcsnwrpwwsrikr.supabase.co', 'eyJhb
 
 function Post(props) {
   const post = props.post
+  var fire_count = post.fire_count;
+  var trash_count = post.trash_count;
   
   const incrementFire = async ({ id }) => {
     const {data, error} = await supabase
     .rpc('increment', { row_id: id })
+    fire_count += 1;
     return data
   }
 
   const incrementTrash = async ({ id }) => {
     const {data, error} = await supabase
     .rpc('incrementtwo', {row_id: id })
+    trash_count += 1;
     return data
   }
 
@@ -29,10 +33,10 @@ function Post(props) {
           <br></br>
           {post.description}
         </Card.Text>
-        <Button variant="outline-dark" onClick={() => incrementFire({ id: post.id })}>🔥 {post.fire_count}</Button>
-        <Button variant="outline-dark" onClick={() => incrementTrash({ id: post.id })}>🗑️ {post.trash_count}</Button>
+        <Button variant="outline-dark" onClick={() => incrementFire({ id: post.id })}>🔥 {fire_count}</Button>
+        <Button variant="outline-dark" onClick={() => incrementTrash({ id: post.id })}>🗑️ {trash_count}</Button>
       </Card.Body>
-      <Card.Footer>Posted on {post.created_at}</Card.Footer>
+      <Card.Footer>Posted on {new Date(post.created_at).toDateString()}</Card.Footer>
     </Card>
   )
 }
