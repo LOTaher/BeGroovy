@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Post from "../components/Post"
 import SearchForm from "../components/SearchForm"
 import FeedNavbar from "../components/Navbar"
+import PostGrid from "../components/PostGrid"
 
 
 const supabase = createClient('https://uktonbtcsnwrpwwsrikr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVrdG9uYnRjc253cnB3d3NyaWtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxNjU5ODIsImV4cCI6MTk5Mjc0MTk4Mn0.3o3Xz3XlW_4Kq-375e8DZUALcosQ4Bb874gib7GfAJE')
@@ -88,13 +89,7 @@ function Feed() {
 
                     <hr></hr>
                     <h3>Feed</h3>
-                    <Row className="g-4" lg={1} xs={1}>
-                        {posts.map((post) => (
-                            <Col style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <Post post={post} /> 
-                            </Col>
-                        ))}
-                    </Row>
+                    <PostGrid posts={posts}/>
                 </>
             :
                 <> 
