@@ -1,7 +1,7 @@
 import React from 'react'
 import { createClient } from "@supabase/supabase-js"
 import { useEffect, useState } from 'react'
-import { Container, Nav, Navbar, Form, Button, Row, Col, Modal} from "react-bootstrap"
+import { Container, Nav, Navbar, Form, Button, Row, Col, Modal, Card} from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const supabase = createClient('https://uktonbtcsnwrpwwsrikr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVrdG9uYnRjc253cnB3d3NyaWtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxNjU5ODIsImV4cCI6MTk5Mjc0MTk4Mn0.3o3Xz3XlW_4Kq-375e8DZUALcosQ4Bb874gib7GfAJE')
@@ -16,7 +16,11 @@ const SearchForm = (props) => {
     const [name, setName] = useState("")
     const [info, setInfo] = useState({})
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    const [searched, setSearched] = useState(false);
+    const handleClose = () => {
+        setShow(false);
+        setSearched(false);
+    };
     const handleShow = () => setShow(true);
 
     async function search() {
@@ -35,6 +39,7 @@ const SearchForm = (props) => {
                 console.log(data)
                 setInfo(data)
             })
+        setSearched(true);
     }
 
 
@@ -61,6 +66,22 @@ const SearchForm = (props) => {
         location.reload()
 
     }
+
+    const Results = () => (
+        <div>
+            <Modal.Body>
+                <hr></hr>
+                <Card className="text-center" style={{ width: '20rem' }}>
+                    <Card.Img variant="top" src={info.tracks.items[0].album.images[0].url} />
+                    <Card.Body>
+                        <Card.Title>
+                            <a href={info.tracks.items[0].external_urls.spotify}target="_blank">{info.tracks.items[0].name}</a> - {info.tracks.items[0].artists[0].name}
+                        </Card.Title>
+                    </Card.Body>
+                </Card>
+            </Modal.Body>
+        </div>
+    )
     
     return (
         <div>
@@ -82,11 +103,12 @@ const SearchForm = (props) => {
                     </Modal.Body>
                     <Modal.Footer>
                         {/* <Button variant="primary" onClick={() => { search(); createPost(); handleClose }}>Post</Button> */}
-                        <Button variant="primary" onClick={() => search()}>Confirm</Button>
+                        <Button variant="primary" onClick={() => search()}>Search</Button>
                         <Button variant="success" onClick={() => { createPost(); handleClose }}>Post</Button>
                         <Button variant="secondary" onClick={ handleClose }>Cancel</Button>
                         {/* <Button onClick={() => search()}>Confirm</Button>  */}
                     </Modal.Footer>
+                    {searched ? <Results/> : null}
                 </Modal>
             </Container>
         </div>
