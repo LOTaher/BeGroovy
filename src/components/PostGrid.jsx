@@ -14,7 +14,10 @@ function PostGrid(props) {
     const posts = props.posts;
     const NUM_DISPLAYED = 15;
 
-    posts.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+    posts.sort((a, b) => {
+        var diff = Date.parse(b.created_at) - Date.parse(a.created_at)
+        return diff == 0 ? b.id - a.id : diff;
+    });
     posts.length = NUM_DISPLAYED;
 
     
