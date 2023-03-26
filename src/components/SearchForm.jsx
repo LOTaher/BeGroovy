@@ -9,15 +9,11 @@ const supabase = createClient('https://uktonbtcsnwrpwwsrikr.supabase.co', 'eyJhb
 
 const SearchForm = (props) => {
     const user = props.user;
-    const name = props.name;
-    const artist = props.artist;
-    const setName = props.setName;
-    const setArtist = props.setArtist;
-    const description = props.description
-    const setDescription = props.setDescription;
     const accessToken = props.accessToken;
-    const info = props.info;
-    const setInfo = props.setInfo;
+    const [artist, setArtist] = useState("")
+    const [description, setDescription] = useState("")
+    const [name, setName] = useState("")
+    const [info, setInfo] = useState({})
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

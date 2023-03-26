@@ -19,13 +19,9 @@ const CLIENT_SECRET = "7f87767044644d1cb35ee51d408fb944"
 
 function Feed() {
     const [user, setUser] = useState({})
-    const [info, setInfo] = useState({})
    // const [video, setVideo] = useState("")
-    const [name, setName] = useState("")
-    const [description, setDescription] = useState("")
     const [posts, setPosts] = useState([])
     const [accessToken, setAccessToken] = useState("")
-    const [artist, setArtist] = useState("")
     const [confirming, setConfirming] = useState(false) // 
     const navigate = useNavigate()
    
@@ -84,7 +80,7 @@ function Feed() {
             { Object.keys(user).length !== 0 ?
                 <>
                 <FeedNavbar user={user}/>
-                <SearchForm user={user} name={name} artist={artist} setName={setName} setArtist={setArtist} setDescription={setDescription} accessToken={accessToken} info={info} setInfo={setInfo} description={description}/>
+                <SearchForm user={user} accessToken={accessToken}/>
 
                     <hr></hr>
                     <h3>Feed</h3>
