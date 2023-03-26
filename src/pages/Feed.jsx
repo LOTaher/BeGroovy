@@ -2,10 +2,11 @@ import { createClient } from "@supabase/supabase-js"
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import Redirect from "../components/Redirect"
-import { Container, Nav, Navbar, Form, Button, Row, Col} from "react-bootstrap"
+import { Row, Col} from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Post from "../components/Post"
 import SearchForm from "../components/SearchForm"
+import FeedNavbar from "../components/Navbar"
 
 
 const supabase = createClient('https://uktonbtcsnwrpwwsrikr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVrdG9uYnRjc253cnB3d3NyaWtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxNjU5ODIsImV4cCI6MTk5Mjc0MTk4Mn0.3o3Xz3XlW_4Kq-375e8DZUALcosQ4Bb874gib7GfAJE')
@@ -76,34 +77,13 @@ function Feed() {
         .then(result => result.json())
         .then(data => setAccessToken(data.access_token))
     }, [])
-
-
-    // Sign Out Button
-    async function signOutUser() {
-        const { error } = await supabase.auth.signOut()
-        navigate("/")
-    }
-
-
-
     
     
     return (
         <div>
             { Object.keys(user).length !== 0 ?
                 <>
-                <Navbar>
-                    <Container>
-                        <Navbar.Brand>Oasis Project</Navbar.Brand>
-                    <Nav>
-                        <Nav.Item>Signed in as {user.user_metadata.name}</Nav.Item>
-                        <Nav.Item>
-                        <button onClick={() => signOutUser()}>Sign Out</button>
-                        </Nav.Item>
-                    </Nav>
-                    </Container>
-                </Navbar>
-                
+                <FeedNavbar user={user}/>
                 <SearchForm user={user} name={name} artist={artist} setName={setName} setArtist={setArtist} setDescription={setDescription} accessToken={accessToken} info={info} setInfo={setInfo} description={description}/>
 
                     <hr></hr>
