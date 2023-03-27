@@ -2,13 +2,10 @@ import { createClient } from "@supabase/supabase-js"
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import Redirect from "../components/Redirect"
-import { Row, Col} from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Post from "../components/Post"
 import SearchForm from "../components/SearchForm"
-import FeedNavbar from "../components/Navbar"
 import PostGrid from "../components/PostGrid"
-
+import FeedNavbar from "../components/FeedNavbar"
 
 const supabase = createClient('https://uktonbtcsnwrpwwsrikr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVrdG9uYnRjc253cnB3d3NyaWtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxNjU5ODIsImV4cCI6MTk5Mjc0MTk4Mn0.3o3Xz3XlW_4Kq-375e8DZUALcosQ4Bb874gib7GfAJE')
 
@@ -79,11 +76,12 @@ function Feed() {
         <div>
             { Object.keys(user).length !== 0 ?
                 <>
-                <FeedNavbar user={user}/>
-                <SearchForm user={user} accessToken={accessToken}/>
+                    <FeedNavbar user={user}/>
 
                     <hr></hr>
-                    <h3>Feed</h3>
+
+                    <SearchForm user={user} accessToken={accessToken}/>
+
                     <PostGrid posts={posts}/>
                 </>
             :
