@@ -19,7 +19,7 @@ function FeedNavbar(props) {
   }
 
   return (
-    <Navbar>
+    <Navbar sticky="top">
       <Navbar.Brand>Oasis Project</Navbar.Brand>
       <Nav>
         <Nav.Link onClick={() => navigate("/feed")}>Feed</Nav.Link>
