@@ -20,7 +20,7 @@ function FeedNavbar(props) {
 
   return (
     <Navbar sticky="top">
-      <Navbar.Brand>Oasis Project</Navbar.Brand>
+      <Navbar.Brand href="/feed">Oasis Project</Navbar.Brand>
       <Nav>
         <Nav.Link onClick={() => navigate("/feed")}>Feed</Nav.Link>
         <NavDropdown title={user.user_metadata.name}>
