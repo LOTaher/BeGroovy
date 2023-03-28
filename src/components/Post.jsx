@@ -54,6 +54,9 @@ function Post(props) {
         </Button>
       </Card.Body>
       <Card.Footer>
+        <audio controls>
+          <source src={post.song} type="audio/mpeg" />
+        </audio>
         Posted on {new Date(post.created_at).toDateString()}
       </Card.Footer>
     </Card>
