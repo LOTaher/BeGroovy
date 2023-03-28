@@ -1,0 +1,32 @@
+/* This is the background color. For the sake of difficulty, we will have to have the same color for every page for now.
+body {
+  background: rgb(34, 117, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(34, 117, 36, 1) 0%,
+    rgba(116, 232, 145, 1) 35%,
+    rgba(89, 186, 206, 1) 100%
+  );
+}
+*/
+.h1 {
+  position: absolute;
+  color: black;
+  top: 190px;
+  left: 225px;
+}
+
+.p {
+  position: absolute;
+  font-size: 18px;
+  color: black;
+  top: 250px;
+  left: 225px;
+}
+
+.img {
+  position: absolute;
+  top: 200px;
+  left: 650px;
+  width: 800px;
+}
