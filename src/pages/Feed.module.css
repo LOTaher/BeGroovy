@@ -4,3 +4,9 @@ TODO
 
 
 */
+
+.button {
+  position: fixed;
+  right: 0;
+  bottom: 10px;
+}

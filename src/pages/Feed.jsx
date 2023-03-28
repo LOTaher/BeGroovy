@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SearchForm from "../components/SearchForm";
 import PostGrid from "../components/PostGrid";
 import FeedNavbar from "../components/FeedNavbar";
+import styles from "./Feed.module.css";
 
 const supabase = createClient(
   "https://uktonbtcsnwrpwwsrikr.supabase.co",
@@ -79,9 +80,9 @@ function Feed() {
         <>
           <FeedNavbar user={user} />
 
-          <SearchForm user={user} accessToken={accessToken} />
-
-          <hr></hr>
+          <div className={styles.button}>
+            <SearchForm user={user} accessToken={accessToken} />
+          </div>
 
           <PostGrid posts={posts} />
         </>

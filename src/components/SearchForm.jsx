@@ -112,7 +112,7 @@ const SearchForm = (props) => {
   return (
     <div>
       <Container>
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="primary" size="lg" onClick={handleShow}>
           Add Post
         </Button>
         <Modal show={show} onHide={handleClose}>
