@@ -71,7 +71,7 @@ const SearchForm = (props) => {
           song_artist: info.tracks.items[0].artists[0].name,
           song_image: info.tracks.items[0].album.images[0].url,
           song_preview: info.tracks.items[0].external_urls.spotify,
-          song: '"' + info.tracks.items[0].preview_url + '"',
+          song: info.tracks.items[0].preview_url,
         })
         .single();
       console.log("Posted!");
