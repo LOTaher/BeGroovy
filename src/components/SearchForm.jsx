@@ -104,7 +104,21 @@ const SearchForm = (props) => {
               - {info.tracks.items[0].artists[0].name}
             </Card.Title>
           </Card.Body>
+          <Card.Footer>
+          <audio controls>
+          <source src={info.tracks.items[0].preview_url} type="audio/mpeg" />
+          </audio>
+          </Card.Footer>
         </Card>
+        <Button
+              variant="success"
+              onClick={() => {
+                createPost();
+                handleClose;
+              }}
+            >
+              Post
+            </Button>
       </Modal.Body>
     </div>
   );
@@ -145,15 +159,6 @@ const SearchForm = (props) => {
             {/* <Button variant="primary" onClick={() => { search(); createPost(); handleClose }}>Post</Button> */}
             <Button variant="primary" onClick={() => search()}>
               Search
-            </Button>
-            <Button
-              variant="success"
-              onClick={() => {
-                createPost();
-                handleClose;
-              }}
-            >
-              Post
             </Button>
             <Button variant="secondary" onClick={handleClose}>
               Cancel
