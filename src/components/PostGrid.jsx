@@ -2,6 +2,8 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import Post from "../components/Post";
 
+let username = "";
+
 function RenderPost(post) {
   return (
     <Col
@@ -11,7 +13,7 @@ function RenderPost(post) {
         justifyContent: "center",
       }}
     >
-      <Post post={post} />
+      <Post post={post} username = {username}/>
     </Col>
   );
 }
@@ -19,6 +21,7 @@ function RenderPost(post) {
 function PostGrid(props) {
   const posts = props.posts;
   const NUM_DISPLAYED = 15;
+  username = props.username;
 
   posts.sort((a, b) => {
     const diff = Date.parse(b.created_at) - Date.parse(a.created_at);

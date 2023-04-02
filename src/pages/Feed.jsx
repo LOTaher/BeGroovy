@@ -84,7 +84,7 @@ function Feed() {
             <SearchForm user={user} accessToken={accessToken} />
           </div>
 
-          <PostGrid posts={posts} />
+          <PostGrid posts={posts} username = {user.user_metadata.name}/>
         </>
       ) : (
         <>

@@ -12,6 +12,10 @@ function Post(props) {
   const post = props.post;
   const [fireCount, setFireCount] = useState(post.fire_count);
   const [trashCount, setTrashCount] = useState(post.trash_count);
+  const username = props.username;
+  const posted_by = props.post.posted_by
+  const deleteVisible = posted_by == username;
+  
 
   const incrementFire = async ({ id }) => {
     const { data, error } = await supabase.rpc("increment", { row_id: id });
@@ -24,6 +28,17 @@ function Post(props) {
     setTrashCount(trashCount + 1);
     return data;
   };
+
+   async function handleDelete(){
+    console.log("deleted");
+    console.log(props.post.id);
+
+    const { error } = await supabase
+    .from('Posts')
+    .delete()
+    .eq('id', props.post.id)
+      location.reload();
+  }
 
   return (
     <Card className="text-center" style={{ width: "20rem" }}>
@@ -52,6 +67,12 @@ function Post(props) {
         >
           🗑️ {trashCount}
         </Button>
+        
+        <div>{deleteVisible ? <Button 
+        variant= "danger" 
+        size = "sm"
+        onClick={() => handleDelete()}> Delete 
+        </Button> : null}</div>
       </Card.Body>
       <Card.Footer>
         <audio controls>
