@@ -86,9 +86,9 @@ const SearchForm = (props) => {
 
   const Results = () => (
     <div>
-      <Modal.Body>
+      {/* <Modal.Body> */}
         <hr></hr>
-        <Card className="text-center" style={{ width: "20rem" }}>
+        <Card className="text-center" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
           <Card.Img
             variant="top"
             src={info.tracks.items[0].album.images[0].url}
@@ -110,16 +110,18 @@ const SearchForm = (props) => {
           </audio>
           </Card.Footer>
         </Card>
+        <hr></hr>
         <Button
               variant="success"
               onClick={() => {
                 createPost();
                 handleClose;
               }}
+              style={{float: 'right'}}
             >
               Post
-            </Button>
-      </Modal.Body>
+        </Button>
+      {/* </Modal.Body> */}
     </div>
   );
 
@@ -164,8 +166,8 @@ const SearchForm = (props) => {
               Cancel
             </Button>
             {/* <Button onClick={() => search()}>Confirm</Button>  */}
+            {searched ? <Results /> : null}
           </Modal.Footer>
-          {searched ? <Results /> : null}
         </Modal>
       </Container>
     </div>
