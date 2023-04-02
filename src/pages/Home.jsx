@@ -22,7 +22,7 @@ function Home() {
 
   return (
     <>
-      <h1 className={styles.h1}>Project Name</h1>
+      <h1 className={styles.h1}>BeGroovy</h1>
 
       <p className={styles.p}>
         An Oasis Project presented by Laith, Aaron, Kaito, Joey, and Vidyut
