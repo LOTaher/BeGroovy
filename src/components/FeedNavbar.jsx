@@ -20,9 +20,9 @@ function FeedNavbar(props) {
 
   return (
     <Navbar sticky="top">
-      <Navbar.Brand href="/feed">Oasis Project</Navbar.Brand>
+      <Navbar.Brand href="/feed">BeGroovy</Navbar.Brand>
       <Nav>
-        <Nav.Link onClick={() => navigate("/feed")}>Feed</Nav.Link>
+        {/* <Nav.Link onClick={() => navigate("/feed")}>Feed</Nav.Link> */}
         <NavDropdown title={user.user_metadata.name}>
           <NavDropdown.Item onClick={() => signOutUser()}>
             Sign Out
