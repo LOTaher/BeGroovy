@@ -20,9 +20,10 @@ function Home() {
     }
   });
 
+  //       <h1 className={styles.h1}>BeGroovy</h1>
   return (
     <>
-      <h1 className={styles.h1}>BeGroovy</h1>
+      <img className={styles.logo} src="BeGroovy.png" />
 
       <p className={styles.p}>
         An Oasis Project presented by Laith, Aaron, Kaito, Joey, and Vidyut
@@ -55,7 +56,7 @@ function Home() {
               color: "white",
               width: "200px",
               position: "absolute",
-              top: "300px",
+              top: "410px",
               left: "225px",
             },
           },
