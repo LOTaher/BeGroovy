@@ -159,7 +159,7 @@ const SearchForm = (props) => {
           </Modal.Body>
           <Modal.Footer>
             {/* <Button variant="primary" onClick={() => { search(); createPost(); handleClose }}>Post</Button> */}
-            <Button variant="primary" onClick={() => search()}>
+            <Button variant="primary" disabled={!(name && artist)} onClick={() => search()}>
               Search
             </Button>
             <Button variant="secondary" onClick={handleClose}>
