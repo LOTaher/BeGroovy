@@ -20,7 +20,16 @@ function FeedNavbar(props) {
 
   return (
     <Navbar sticky="top">
-      <Navbar.Brand href="/feed">BeGroovy</Navbar.Brand>
+      <Navbar.Brand>
+        <img
+          alt=""
+          src="BeGroovy.png"
+          width="160"
+          height="60"
+          className="d-inline-block align-top"
+        />{' '}
+      </Navbar.Brand>
+      {/* <Navbar.Brand href="/feed">BeGroovy</Navbar.Brand> */}
       <Nav>
         {/* <Nav.Link onClick={() => navigate("/feed")}>Feed</Nav.Link> */}
         <NavDropdown title={user.user_metadata.name}>
