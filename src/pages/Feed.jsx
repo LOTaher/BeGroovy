@@ -9,21 +9,17 @@ import FeedNavbar from "../components/FeedNavbar";
 import styles from "./Feed.module.css";
 
 const supabase = createClient(
-  "https://uktonbtcsnwrpwwsrikr.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVrdG9uYnRjc253cnB3d3NyaWtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxNjU5ODIsImV4cCI6MTk5Mjc0MTk4Mn0.3o3Xz3XlW_4Kq-375e8DZUALcosQ4Bb874gib7GfAJE"
+  import.meta.env.VITE_SUPA_URL,
+  import.meta.env.VITE_SUPA_KEY
 );
 
-// const CDNURL = "https://uktonbtcsnwrpwwsrikr.supabase.co/storage/v1/object/public/videos/"
-
-const CLIENT_ID = "3e40fd4145da44fda00188b61165330e";
-const CLIENT_SECRET = "7f87767044644d1cb35ee51d408fb944";
+const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+const CLIENT_SECRET = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
 
 function Feed() {
   const [user, setUser] = useState({});
-  // const [video, setVideo] = useState("")
   const [posts, setPosts] = useState([]);
   const [accessToken, setAccessToken] = useState("");
-  const [confirming, setConfirming] = useState(false); //
   const navigate = useNavigate();
 
   // logging user's data     // Fetches all posts on page load
@@ -84,7 +80,7 @@ function Feed() {
             <SearchForm user={user} accessToken={accessToken} />
           </div>
 
-          <PostGrid posts={posts} username = {user.user_metadata.name}/>
+          <PostGrid posts={posts} username={user.user_metadata.name} />
         </>
       ) : (
         <>

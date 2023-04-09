@@ -15,8 +15,8 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const supabase = createClient(
-  "https://uktonbtcsnwrpwwsrikr.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVrdG9uYnRjc253cnB3d3NyaWtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxNjU5ODIsImV4cCI6MTk5Mjc0MTk4Mn0.3o3Xz3XlW_4Kq-375e8DZUALcosQ4Bb874gib7GfAJE"
+  import.meta.env.VITE_SUPA_URL,
+  import.meta.env.VITE_SUPA_KEY
 );
 
 const SearchForm = (props) => {
@@ -87,40 +87,47 @@ const SearchForm = (props) => {
   const Results = () => (
     <div>
       {/* <Modal.Body> */}
-        <hr></hr>
-        <Card className="text-center" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <Card.Img
-            variant="top"
-            src={info.tracks.items[0].album.images[0].url}
-          />
-          <Card.Body>
-            <Card.Title>
-              <a
-                href={info.tracks.items[0].external_urls.spotify}
-                target="_blank"
-              >
-                {info.tracks.items[0].name}
-              </a>{" "}
-              - {info.tracks.items[0].artists[0].name}
-            </Card.Title>
-          </Card.Body>
-          <Card.Footer>
-          <audio controls>
-          <source src={info.tracks.items[0].preview_url} type="audio/mpeg" />
-          </audio>
-          </Card.Footer>
-        </Card>
-        <hr></hr>
-        <Button
-              variant="success"
-              onClick={() => {
-                createPost();
-                handleClose;
-              }}
-              style={{float: 'right'}}
+      <hr></hr>
+      <Card
+        className="text-center"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Card.Img
+          variant="top"
+          src={info.tracks.items[0].album.images[0].url}
+        />
+        <Card.Body>
+          <Card.Title>
+            <a
+              href={info.tracks.items[0].external_urls.spotify}
+              target="_blank"
             >
-              Post
-        </Button>
+              {info.tracks.items[0].name}
+            </a>{" "}
+            - {info.tracks.items[0].artists[0].name}
+          </Card.Title>
+        </Card.Body>
+        <Card.Footer>
+          <audio controls>
+            <source src={info.tracks.items[0].preview_url} type="audio/mpeg" />
+          </audio>
+        </Card.Footer>
+      </Card>
+      <hr></hr>
+      <Button
+        variant="success"
+        onClick={() => {
+          createPost();
+          handleClose;
+        }}
+        style={{ float: "right" }}
+      >
+        Post
+      </Button>
       {/* </Modal.Body> */}
     </div>
   );
@@ -159,7 +166,11 @@ const SearchForm = (props) => {
           </Modal.Body>
           <Modal.Footer>
             {/* <Button variant="primary" onClick={() => { search(); createPost(); handleClose }}>Post</Button> */}
-            <Button variant="primary" disabled={!(name && artist)} onClick={() => search()}>
+            <Button
+              variant="primary"
+              disabled={!(name && artist)}
+              onClick={() => search()}
+            >
               Search
             </Button>
             <Button variant="secondary" onClick={handleClose}>

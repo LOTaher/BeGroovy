@@ -4,8 +4,8 @@ import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
 
 const supabase = createClient(
-  "https://uktonbtcsnwrpwwsrikr.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVrdG9uYnRjc253cnB3d3NyaWtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxNjU5ODIsImV4cCI6MTk5Mjc0MTk4Mn0.3o3Xz3XlW_4Kq-375e8DZUALcosQ4Bb874gib7GfAJE"
+  import.meta.env.VITE_SUPA_URL,
+  import.meta.env.VITE_SUPA_KEY
 );
 
 function Post(props) {
@@ -13,9 +13,8 @@ function Post(props) {
   const [fireCount, setFireCount] = useState(post.fire_count);
   const [trashCount, setTrashCount] = useState(post.trash_count);
   const username = props.username;
-  const posted_by = props.post.posted_by
+  const posted_by = props.post.posted_by;
   const deleteVisible = posted_by == username;
-  
 
   const incrementFire = async ({ id }) => {
     const { data, error } = await supabase.rpc("increment", { row_id: id });
@@ -29,15 +28,15 @@ function Post(props) {
     return data;
   };
 
-   async function handleDelete(){
+  async function handleDelete() {
     console.log("deleted");
     console.log(props.post.id);
 
     const { error } = await supabase
-    .from('Posts')
-    .delete()
-    .eq('id', props.post.id)
-      location.reload();
+      .from("Posts")
+      .delete()
+      .eq("id", props.post.id);
+    location.reload();
   }
 
   return (
@@ -67,12 +66,15 @@ function Post(props) {
         >
           🗑️ {trashCount}
         </Button>
-        
-        <div>{deleteVisible ? <Button 
-        variant= "danger" 
-        size = "sm"
-        onClick={() => handleDelete()}> Delete 
-        </Button> : null}</div>
+
+        <div>
+          {deleteVisible ? (
+            <Button variant="danger" size="sm" onClick={() => handleDelete()}>
+              {" "}
+              Delete
+            </Button>
+          ) : null}
+        </div>
       </Card.Body>
       <Card.Footer>
         <audio controls>
