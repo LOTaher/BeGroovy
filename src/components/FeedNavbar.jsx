@@ -24,10 +24,10 @@ function FeedNavbar(props) {
         <img
           alt=""
           src="BeGroovy.png"
-          width="160"
+          width="190"
           height="60"
           className="d-inline-block align-top"
-        />{' '}
+        />{" "}
       </Navbar.Brand>
       {/* <Navbar.Brand href="/feed">BeGroovy</Navbar.Brand> */}
       <Nav>
