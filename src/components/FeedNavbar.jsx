@@ -21,13 +21,15 @@ function FeedNavbar(props) {
   return (
     <Navbar sticky="top">
       <Navbar.Brand>
-        <img
-          alt=""
-          src="BeGroovy.png"
-          width="190"
-          height="60"
-          className="d-inline-block align-top"
-        />{" "}
+        <a href="#">
+          <img
+            alt=""
+            src="BeGroovy.png"
+            width="190"
+            height="60"
+            className="d-inline-block align-top"
+          />{" "}
+        </a>
       </Navbar.Brand>
       {/* <Navbar.Brand href="/feed">BeGroovy</Navbar.Brand> */}
       <Nav>
