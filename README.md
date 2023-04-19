@@ -1,7 +1,7 @@
 ## BeGroovy | Oasis Spring 2023
 **Created by**: Laith Taher, Aaron Kim, Joseph Kim, Vidyut Ramanan and Kaito Minami
 
-**Art Done by**: Amanda Rabin and Audrey Morga
+**Art/design done by**: Amanda Rabin and Audrey Morga
 
 Due to our [Spotify for Developers](https://developer.spotify.com/) app not being extended, our site is currently not being hosted on a domain.
 If you would like to check out BeGroovy, you may self host it by doing these steps:
