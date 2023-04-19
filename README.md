@@ -22,7 +22,7 @@ Once completed run `npm run dev` in the main directory and enjoy!
 ### Contributing
 We don't have much of a policy so if you'd like to contribute to the project, feel free to file a pull request.
 
-If you're curious to see what our presentation looked like at Demo Day, then check out this [link](https://docs.google.com/presentation/d/1Waid320x178V1s_AMj-3rzG9FVzUT62XVzuRCgoBoYw/edit?usp=sharing)!
+If you're curious to see what our presentation looked like at Demo Day, then check out this [link](https://docs.google.com/presentation/d/1Waid320x178V1s_AMj-3rzG9FVzUT62XVzuRCgoBoYw/edit?usp=sharing)! Here is our project listed on the Oasis [website](https://hub.oasisneu.com/3bdf477afc7941938bf49be8902d3678)!
 
 ![Logo](https://media.discordapp.net/attachments/926427375091208242/1094706300740452452/BeGroovy.png?width=887&height=293)
 
