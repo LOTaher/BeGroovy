@@ -12,7 +12,7 @@ If you would like to check out BeGroovy, you may self host it by doing these ste
 
 - Go to [Supabase](https://supabase.com/) and create a new project.
   - Find your `Project URL` and `Project API Key` by going to **Settings** -> **API**. Add both of them to your `.env` file in the project's main directory. 
-  - Under **Database**, create a new table called `Posts`. In this table copy, [each of these columns](https://media.discordapp.net/attachments/926427375091208242/1094703040767995914/image.png?width=1085&height=591).
+  - Under **Database**, create a new table called `Posts`. In this table copy, [each of these columns](https://imgur.com/a/zs9h639).
 
 - Create a [Spotify Developer](https://developer.spotify.com/) account, then create a new app. This can be called whatever you'd like. 
   - Under your project's settings, add both the `Client ID` and the `Client Secret` to the `.env` file.
